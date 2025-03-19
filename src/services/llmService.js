@@ -3,7 +3,7 @@
 import axios from 'axios';
 
 const OPENAI_API_KEY = process.env.REACT_APP_OPENAI_API_KEY;
-const OPENAI_API_URL = 'https://llmfoundry.straive.com/openai/v1/chat/completions';
+const OPENAI_API_URL = 'https://llmfoundry.straive.com/gemini/v1beta/openai/chat/completions';
 
 export const cleanCodeResponse = (response) => {
   // Remove Markdown code block wrappers and any leading/trailing whitespace
@@ -23,10 +23,10 @@ ${description}
   const response = await axios.post(
     OPENAI_API_URL,
     {
-      model: 'gpt-4o-mini',
+      model: 'gemini-2.0-flash',
       messages: [{ role: 'user', content: prompt }],
       temperature: 0.3,
-      max_tokens: 1500,
+      // max_tokens: 1500,
     },
     {
       headers: {
@@ -61,10 +61,10 @@ Return only the updated HTML code—do not include explanations or additional te
   const response = await axios.post(
     OPENAI_API_URL,
     {
-      model: 'gpt-4o-mini',
+      model: 'gemini-2.0-flash',
       messages: [{ role: 'user', content: prompt }],
       temperature: 0.3,
-      max_tokens: 1500,
+      // max_tokens: 1500,
     },
     {
       headers: {
